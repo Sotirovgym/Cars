@@ -16,6 +16,16 @@ const schema = new mongoose.Schema({
         required: [true, "Model is required"],
         minLength: 2
     },
+    year: {
+        type: Number,
+        required: [true, "Year is required"],
+        min: 1900
+    },
+    mileage: {
+        type: Number,
+        required: [true, "Mileage is required"],
+        min: 0
+    },
     image: {
         type: String,
         required: [true, "Image is required"],
@@ -34,7 +44,7 @@ const schema = new mongoose.Schema({
     createdOn: {
         type: Date
     },
-    likedList: [{
+    likes: [{
         type: mongoose.Types.ObjectId,
         ref: 'User'
     }],
