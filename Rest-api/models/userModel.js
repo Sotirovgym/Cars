@@ -36,13 +36,9 @@ const userSchema = new mongoose.Schema({
             message: props => `${props.value} must contains only latin letters and digits!`
         },
     },
-    themes: [{
+    cars: [{
         type: ObjectId,
-        ref: "Theme"
-    }],
-    posts: [{
-        type: ObjectId,
-        ref: "Post"
+        ref: "Car"
     }]
 }, { timestamps: { createdAt: 'created_at' } });
 
