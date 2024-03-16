@@ -18,16 +18,45 @@ async function getCar(req, res, next) {
 }
 
 async function createCar(req, res, next) {
-    try {
-      const { userId } = req.user;
-      res.status(200).json(await carService.craete(userId, req.body));
-    } catch (error) {
-      next();
-    }
+  try {
+    res.status(200).json(await carService.craete(req.user._id, req.body));
+  } catch (error) {
+    next();
   }
+}
+
+async function likeCar(req, res, next) {
+  try {
+    const { carId } = req.params;
+    res.status(200).json(await carService.like(carId, req.user._id));
+  } catch (error) {
+    next();
+  }
+}
+
+async function editCar(req, res, next) {
+  try {
+    const { carId } = req.params;
+    res.status(200).json(await carService.update(carId, req.body));
+  } catch (error) {
+    next();
+  }
+}
+
+async function deleteCar(req, res, next) {
+  try {
+    const { carId } = req.params;
+    res.status(200).json(await carService.delete(carId));
+  } catch (error) {
+    next();
+  }
+}
 
 module.exports = {
   getCars,
   getCar,
-  createCar
+  createCar,
+  likeCar,
+  editCar,
+  deleteCar
 };
