@@ -10,6 +10,8 @@ export interface Car{
   model: string,
   year: number,
   mileage: number,
+  engine: string,
+  region: string,
   image: string,
   description: string,
   price: number,
