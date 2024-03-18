@@ -26,6 +26,14 @@ const schema = new mongoose.Schema({
         required: [true, "Mileage is required"],
         min: 0
     },
+    engine: {
+        type: String,
+        required: [true, "Engine is required"]
+    },
+    region: {
+        type: String,
+        required: [true, "Region is required"]
+    },
     image: {
         type: String,
         required: [true, "Image is required"],
