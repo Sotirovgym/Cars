@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-4 m-auto">
+    <div class="card m-auto">
+      <div class="card-header">Register</div>
+      <div class="card-body">
+        <form>
+          <div class="form-group col-12">
+            <label for="name" class="form-label">Name</label> <br />
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              formControlName="username"
+              autocomplete="given-name"
+            />
+          </div>
+
+          <div class="form-group col-12">
+            <label for="email" class="form-label">Email</label> <br />
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+              autocomplete="given-name"
+            />
+          </div>
+
+          <div class="form-group col-12">
+            <label for="password" class="form-label">Password</label> <br />
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              formControlName="password"
+            />
+          </div>
+
+          <div class="form-group col-12">
+            <label for="confirmPassword" class="form-label"
+              >Confirm Password</label
+            >
+            <br />
+            <span>Please confirm password</span>
+            <span>Password not matched</span>
+            <input
+              type="password"
+              class="form-control"
+              id="confirmPassword"
+              formControlName="confirmPassword"
+            />
+          </div>
+
+          <div class="form-group col-12">
+            <label for="mobile" class="form-label">Mobile</label> <br />
+            <span>
+              <span>This field is required</span>
+              <span>Mobile number cannot exceed 10 characters</span>
+            </span>
+            <input
+              type="text"
+              class="form-control"
+              id="mobile"
+              formControlName="mobile"
+            />
+          </div>
+
+          <div class="form-group col-12 mt-2">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="reset" class="btn btn-primary m-lg-2">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
