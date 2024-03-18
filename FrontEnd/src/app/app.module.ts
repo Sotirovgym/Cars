@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FeaturesModule } from './features/features.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     HttpClientModule,
     CoreModule,
-    NgbModule
+    NgbModule,
+    FeaturesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
