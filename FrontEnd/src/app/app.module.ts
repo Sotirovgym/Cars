@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FeaturesModule } from './features/features.module';
+import { CarsModule } from './features/cars/cars.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FeaturesModule } from './features/features.module';
     HttpClientModule,
     CoreModule,
     NgbModule,
-    FeaturesModule
+    FeaturesModule,
+    CarsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
