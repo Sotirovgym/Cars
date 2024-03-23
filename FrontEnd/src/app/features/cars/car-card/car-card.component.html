@@ -4,17 +4,14 @@
     <img *ngIf="!car.image" class="card-img-top" src="{{car.image}}">
     <ul class="member-icons list-inline text-center animate">
       <li class="list-inline-item">
-          <button class="btn btn-primary" routerLink="/detail-property/{{car._id}}"><i class="fa-regular fa-pen-to-square"></i></button>
-      </li>
-      <li class="list-inline-item">
-        <button class="btn btn-primary"><i class="fa-regular fa-address-book"></i></button>
+          <button class="btn btn-primary" routerLink="/cars/details/{{car._id}}"><i class="fa-solid fa-bars"></i></button>
       </li>
     </ul>
   </div>
   <div class="card-body">
     <h5>{{car.title}}</h5>
     <p>{{car.description}}</p>
-    <h5>{{car.price}}</h5>
+    <h5>{{(car.price | currency: 'USD')}}</h5>
   </div>
 </div>
 
