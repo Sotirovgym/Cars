@@ -44,16 +44,16 @@ function register(req, res, next) {
 }
 
 function login(req, res, next) {
-    const { email, password } = req.body;
+    const { username, password } = req.body;
 
-    userModel.findOne({ email })
+    userModel.findOne({ username })
         .then(user => {
             return Promise.all([user, user ? user.matchPassword(password) : false]);
         })
         .then(([user, match]) => {
             if (!match) {
                 res.status(401)
-                    .send({ message: 'Wrong email or password' });
+                    .send({ message: 'Wrong username or password' });
                 return
             }
             user = bsonToJson(user);
