@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-4 m-auto">
+    <div class="card m-auto">
+      <div class="card-header">{{car?.title}}</div>
+      <div class="card-image-wrapper">
+        <img *ngIf="car?.image" class="card-img" src="{{car?.image}}">
+      </div>
+      <div class="card-body">
+        <div>
+          <b>Brand:</b> {{car?.brand}}
+        </div>
+        <div>
+          <b>Model:</b>  {{car?.model}}
+        </div>
+        <div>
+          Year:  {{car?.year}}
+        </div>
+        <div>
+          Price:  {{car?.price | currency}}
+        </div>
+        <div>
+          Mileage:  {{car?.mileage}}
+        </div>
+        <div>
+          Engine:  {{car?.engine}}
+        </div>
+        <div>
+          Region:  {{car?.region}}
+        </div>
+        <div>
+          Created On:  {{(car?.createdOn | date)}}
+        </div>
+        <div>
+          Description:  {{car?.description}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

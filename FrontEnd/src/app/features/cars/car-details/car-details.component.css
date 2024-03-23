@@ -1,0 +1,11 @@
+.row{
+  margin-top: 4%;
+}
+
+.card-header{
+  font-weight: bold;
+}
+
+.card-img{
+  max-height: 400px;
+}
