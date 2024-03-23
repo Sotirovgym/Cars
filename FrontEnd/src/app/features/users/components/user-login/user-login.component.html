@@ -3,7 +3,7 @@
     <div class="card m-auto">
       <div class="card-header">Login</div>
       <div class="card-body">
-        <form>
+        <form #form="ngForm" (ngSubmit)="login(form)">
           <div class="form-group col-12">
             <label class="form-label">Username</label>
             <input
@@ -11,7 +11,7 @@
               class="form-control"
               required
               ngModel
-              name="userName"
+              name="username"
             />
           </div>
 

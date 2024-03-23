@@ -3,15 +3,15 @@
     <div class="card m-auto">
       <div class="card-header">Register</div>
       <div class="card-body">
-        <form>
+        <form #form="ngForm" (ngSubmit)="register(form)">
           <div class="form-group col-12">
-            <label for="name" class="form-label">Name</label> <br />
+            <label for="name" class="form-label">Username</label> <br />
             <input
               type="text"
               class="form-control"
               id="name"
-              formControlName="username"
-              autocomplete="given-name"
+              ngModel
+              name="username"
             />
           </div>
 
@@ -21,8 +21,8 @@
               type="email"
               class="form-control"
               id="email"
-              formControlName="email"
-              autocomplete="given-name"
+              ngModel
+              name="email"
             />
           </div>
 
@@ -32,7 +32,8 @@
               type="password"
               class="form-control"
               id="password"
-              formControlName="password"
+              ngModel
+              name="password"
             />
           </div>
 
@@ -47,12 +48,13 @@
               type="password"
               class="form-control"
               id="confirmPassword"
-              formControlName="confirmPassword"
+              ngModel
+              name="rePassword"
             />
           </div>
 
           <div class="form-group col-12">
-            <label for="mobile" class="form-label">Mobile</label> <br />
+            <label for="tel" class="form-label">Mobile</label> <br />
             <span>
               <span>This field is required</span>
               <span>Mobile number cannot exceed 10 characters</span>
@@ -60,8 +62,9 @@
             <input
               type="text"
               class="form-control"
-              id="mobile"
-              formControlName="mobile"
+              id="tel"
+              ngModel
+              name="tel"
             />
           </div>
 
