@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FeaturesModule } from './features/features.module';
 import { CarsModule } from './features/cars/cars.module';
+import { appInterceptorProvider } from './app.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CarsModule } from './features/cars/cars.module';
     CarsModule
   ],
   providers: [],
+  providers: [appInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
