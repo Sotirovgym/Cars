@@ -7,8 +7,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CarsModule } from './features/cars/cars.module';
-import { appInterceptorProvider } from './app.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -18,18 +16,16 @@ import { ToastrModule } from 'ngx-toastr';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     HttpClientModule,
     CoreModule,
     NgbModule,
-    CarsModule,
+    AppRoutingModule,
     ToastrModule.forRoot({
       timeOut: 3000,
-      positionClass: 'toast-bottom-right',
+      positionClass: 'toast-top-right',
       preventDuplicates: true
     })
   ],
-  providers: [appInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
