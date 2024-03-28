@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { UserService } from '../../user.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { NotificationService } from 'src/app/core/services/notification.service';
 
 @Component({
   selector: 'app-user-register',
@@ -9,11 +10,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-register.component.css'],
 })
 export class UserRegisterComponent {
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private notifyService: NotificationService) {}
 
   register(form: NgForm) {
     const { username, email, password, tel } = form.value;
-    this.userService.register(username, email, password, tel).subscribe(() => {
+    this.authService.register(username, email, password, tel).subscribe(() => {
+      this.notifyService.showSuccess('Successfully Registered', 'Register');
       this.router.navigate(['/cars']);
     });
   }
