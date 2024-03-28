@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/api.service';
 import { Car } from 'src/types/Car';
+import { CarService } from '../car.service';
 
 @Component({
   selector: 'app-car-list',
@@ -9,10 +9,10 @@ import { Car } from 'src/types/Car';
 })
 export class CarListComponent implements OnInit {
   cars: Car[] = [];
-  constructor(private api: ApiService) {}
+  constructor(private carService: CarService) {}
 
   ngOnInit(): void {
-    this.api.getCars().subscribe((cars) => {
+    this.carService.getCars().subscribe((cars) => {
       this.cars = cars;
     });
   }

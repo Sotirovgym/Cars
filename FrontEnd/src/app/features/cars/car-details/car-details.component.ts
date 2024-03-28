@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from 'src/app/api.service';
 import { Car } from 'src/types/Car';
+import { CarService } from '../car.service';
 
 @Component({
   selector: 'app-car-details',
@@ -13,14 +13,14 @@ export class CarDetailsComponent implements OnInit {
 
   constructor(
     private activeRoute: ActivatedRoute,
-    private apiService: ApiService
+    private carService: CarService
   ) {}
 
   ngOnInit(): void {
     const carId = this.activeRoute.snapshot.paramMap.get('carId');
 
     if (carId) {
-      this.apiService.getCar(carId).subscribe((car) => {
+      this.carService.getCar(carId).subscribe((car) => {
         this.car = car;
       });
     }
