@@ -3,7 +3,7 @@
     <div class="card m-auto">
       <div class="card-header">Login</div>
       <div class="card-body">
-        <form [formGroup]="registerForm" (ngSubmit)="login()">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
           <div class="form-group col-12">
             <label class="form-label">Username</label>
             <app-error-field [control]='username' [errorMessages]='validationMessages.username' />
@@ -16,7 +16,7 @@
           </div>
 
           <div class="form-group col-12 mt-2">
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Login</button>
             <button type="reset" class="btn btn-primary m-lg-2">Cancel</button>
           </div>
         </form>

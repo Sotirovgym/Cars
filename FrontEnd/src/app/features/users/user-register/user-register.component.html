@@ -3,73 +3,66 @@
     <div class="card m-auto">
       <div class="card-header">Register</div>
       <div class="card-body">
-        <form #form="ngForm" (ngSubmit)="register(form)">
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
           <div class="form-group col-12">
-            <label for="name" class="form-label">Username</label> <br />
+            <label for="username" class="form-label">Username</label>
+            <app-error-field [control]='username' [errorMessages]='validationMessages.username' />
             <input
               type="text"
               class="form-control"
-              id="name"
-              ngModel
-              name="username"
+              formControlName="username"
+              id="username"
+              autocomplete="username"
             />
           </div>
 
           <div class="form-group col-12">
-            <label for="email" class="form-label">Email</label> <br />
+            <label for="email" class="form-label">Email</label>
+            <app-error-field [control]='email' [errorMessages]='validationMessages.email' />
             <input
               type="email"
               class="form-control"
+              formControlName="email"
               id="email"
-              ngModel
-              name="email"
+              autocomplete="email"
             />
           </div>
 
           <div class="form-group col-12">
-            <label for="password" class="form-label">Password</label> <br />
+            <label for="password" class="form-label">Password</label>
+            <app-error-field [control]='password' [errorMessages]='validationMessages.password' />
             <input
               type="password"
               class="form-control"
+              formControlName="password"
               id="password"
-              ngModel
-              name="password"
             />
           </div>
 
           <div class="form-group col-12">
-            <label for="confirmPassword" class="form-label"
-              >Confirm Password</label
-            >
-            <br />
-            <span>Please confirm password</span>
-            <span>Password not matched</span>
+            <label for="rePassword" class="form-label">Confirm Password</label>
+            <app-error-field [control]='rePassword' [errorMessages]='validationMessages.rePassword' />
+            <app-error-field *ngIf="rePassword.touched" [control]='registerForm' [errorMessages]='validationMessages.rePassword' />
             <input
               type="password"
               class="form-control"
-              id="confirmPassword"
-              ngModel
-              name="rePassword"
+              formControlName="rePassword"
+              id="rePassword"
             />
           </div>
 
           <div class="form-group col-12">
-            <label for="tel" class="form-label">Mobile</label> <br />
-            <span>
-              <span>This field is required</span>
-              <span>Mobile number cannot exceed 10 characters</span>
-            </span>
+            <label for="mobile" class="form-label">Mobile</label>
             <input
               type="text"
               class="form-control"
-              id="tel"
-              ngModel
-              name="tel"
+              formControlName="mobile"
+              id="mobile"
             />
           </div>
 
           <div class="form-group col-12 mt-2">
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary">Save</button>
             <button type="reset" class="btn btn-primary m-lg-2">Cancel</button>
           </div>
         </form>

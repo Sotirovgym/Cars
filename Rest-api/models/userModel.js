@@ -17,24 +17,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-        minlength: [5, 'Username should be at least 5 characters'],
-        validate: {
-            validator: function (v) {
-                return /[a-zA-Z0-9]+/g.test(v);
-            },
-            message: props => `${props.value} must contains only latin letters and digits!`
-        },
+        minlength: [5, 'Username should be at least 5 characters']
     },
     password: {
         type: String,
         required: true,
-        minlength: [5, 'Password should be at least 5 characters'],
-        validate: {
-            validator: function (v) {
-                return /[a-zA-Z0-9]+/g.test(v);
-            },
-            message: props => `${props.value} must contains only latin letters and digits!`
-        },
+        minlength: [5, 'Password should be at least 5 characters']
     },
     cars: [{
         type: ObjectId,

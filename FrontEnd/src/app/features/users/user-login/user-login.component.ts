@@ -1,10 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { NotificationService } from 'src/app/core/services/notification.service';
-import { LetterAndDigitValidator } from 'src/app/shared/validators/lettersAndDigitsValidator';
 
 @Component({
   selector: 'app-user-login',
@@ -12,7 +11,7 @@ import { LetterAndDigitValidator } from 'src/app/shared/validators/lettersAndDig
   styleUrls: ['./user-login.component.css'],
 })
 export class UserLoginComponent implements OnInit {
-  registerForm: FormGroup = {} as FormGroup;
+  loginForm: FormGroup = {} as FormGroup;
 
   public validationMessages = {
     username: {
@@ -33,19 +32,19 @@ export class UserLoginComponent implements OnInit {
   ) {}
 
   get username (){
-    return this.registerForm.get('username') as FormControl;
+    return this.loginForm.get('username') as FormControl;
   }
 
   get password (){
-    return this.registerForm.get('password') as FormControl;
+    return this.loginForm.get('password') as FormControl;
   }
 
   ngOnInit(): void {
-    this.createRegisterForm();
+    this.createLoginForm();
   }
 
-  private createRegisterForm(){
-    this.registerForm = this.fb.group(
+  private createLoginForm(){
+    this.loginForm = this.fb.group(
       {
         username: [null, [Validators.required, Validators.minLength(5)]],
         password: [null, [Validators.required, Validators.minLength(5)]],
@@ -56,7 +55,7 @@ export class UserLoginComponent implements OnInit {
   login() {
     this.authService.login(this.username.value, this.password.value).subscribe({
       next: () => {
-        this.registerForm.reset();
+        this.loginForm.reset();
         this.notifyService.showSuccess('Successfully Logged In', 'Login');
         this.router.navigate(['/cars']);
       },
