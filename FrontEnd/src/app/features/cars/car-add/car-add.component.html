@@ -1,0 +1,136 @@
+<div class="row">
+  <div class="col-5 m-auto">
+    <div class="card">
+      <div class="card-header">Create Post</div>
+      <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="title" class="form-label">Title</label>
+            <app-error-field [control]='title' [errorMessages]='validationMessages.title' />
+            <input
+              type="text"
+              class="form-control"
+              formControlName="title"
+              id="title"
+              autocomplete="title"
+            />
+          </div>
+
+          <div>
+            <label for="brand" class="form-label">Brand</label>
+            <app-error-field [control]='brand' [errorMessages]='validationMessages.brand' />
+            <input
+              type="text"
+              class="form-control"
+              formControlName="brand"
+              id="brand"
+              autocomplete="brand"
+            />
+          </div>
+
+          <div>
+            <label for="model" class="form-label">Model</label>
+            <app-error-field [control]='model' [errorMessages]='validationMessages.model' />
+            <input
+              type="text"
+              class="form-control"
+              formControlName="model"
+              id="model"
+              autocomplete="model"
+            />
+          </div>
+
+          <div>
+            <label for="mileage" class="form-label">Mileage</label>
+            <app-error-field [control]='mileage' [errorMessages]='validationMessages.mileage' />
+            <input
+              type="number"
+              class="form-control"
+              formControlName="mileage"
+              id="mileage"
+              autocomplete="mileage"
+            />
+          </div>
+
+          <div>
+            <label for="engine" class="form-label">Engine</label>
+            <app-error-field [control]='engine' [errorMessages]='validationMessages.engine' />
+            <input
+              type="text"
+              class="form-control"
+              formControlName="engine"
+              id="engine"
+              autocomplete="engine"
+            />
+          </div>
+
+          <div>
+            <label for="year" class="form-label">Year</label>
+            <app-error-field [control]='year' [errorMessages]='validationMessages.year' />
+            <input
+              type="number"
+              class="form-control"
+              formControlName="year"
+              id="year"
+              autocomplete="year"
+            />
+          </div>
+
+          <div>
+            <label for="image" class="form-label">Image</label>
+            <app-error-field [control]='image' [errorMessages]='validationMessages.image' />
+            <input
+              type="text"
+              class="form-control"
+              formControlName="image"
+              id="image"
+              autocomplete="image"
+              placeholder="https://"
+            />
+          </div>
+
+          <div>
+            <label for="region" class="form-label">Region</label>
+            <app-error-field [control]='region' [errorMessages]='validationMessages.region' />
+            <input
+              type="text"
+              class="form-control"
+              formControlName="region"
+              id="region"
+              autocomplete="region"
+            />
+          </div>
+
+          <div>
+            <label for="price" class="form-label">Price</label>
+            <app-error-field [control]='price' [errorMessages]='validationMessages.price' />
+            <input
+              type="number"
+              class="form-control"
+              formControlName="price"
+              id="price"
+              autocomplete="price"
+            />
+          </div>
+
+          <div>
+            <label for="description" class="form-label">Description</label>
+            <app-error-field [control]='description' [errorMessages]='validationMessages.description' />
+            <textarea rows="4"
+              class="form-control"
+              formControlName="description"
+              id="description"
+              autocomplete="description">
+            </textarea>
+          </div>
+
+          <div class="card-body-buttons">
+            <button *ngIf="!isAddMode" [disabled]="form.invalid" type="submit" class="btn btn-primary">Update</button>
+            <button *ngIf="isAddMode" [disabled]="form.invalid" type="submit" class="btn btn-primary">Create</button>
+            <button *ngIf="isAddMode" type="reset" class="btn btn-primary m-lg-2">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

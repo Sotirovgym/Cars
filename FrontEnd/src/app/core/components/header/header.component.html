@@ -4,10 +4,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/cars">All Cars</a>
+          <a class="nav-link" routerLink="/cars">Cars</a>
         </li>
         <li *ngIf="isLoggedIn" class="nav-item">
-          <a class="nav-link">Post Car</a>
+          <a class="nav-link" routerLink="/cars/create">Create Post</a>
         </li>
         <li *ngIf="isLoggedIn" class="nav-item">
           <a class="nav-link">Profile</a>
