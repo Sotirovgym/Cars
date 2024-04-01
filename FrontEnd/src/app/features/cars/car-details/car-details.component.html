@@ -6,32 +6,33 @@
         <img *ngIf="car?.image" class="card-img" src="{{car?.image}}">
       </div>
       <div class="card-body">
-        <div>
-          <b>Brand:</b> {{car?.brand}}
+        <div class="card-item-right">
+          <div><label class="card-label">Price: </label>  {{car?.price | currency}}</div>
         </div>
         <div>
-          <b>Model:</b>  {{car?.model}}
+          <label class="card-label">Brand: </label> {{car?.brand}}
         </div>
         <div>
-          Year:  {{car?.year}}
+          <label class="card-label">Model: </label> {{car?.model}}
         </div>
         <div>
-          Price:  {{car?.price | currency}}
+          <label class="card-label">Mileage: </label>  {{car?.mileage}}
         </div>
         <div>
-          Mileage:  {{car?.mileage}}
+          <label class="card-label">Year: </label> {{car?.year}}
         </div>
         <div>
-          Engine:  {{car?.engine}}
+          <label class="card-label">Engine: </label>  {{car?.engine}}
         </div>
         <div>
-          Region:  {{car?.region}}
+          <label class="card-label">Region: </label>  {{car?.region}}
         </div>
         <div>
-          Created On:  {{(car?.createdOn | date)}}
+          <label class="card-label">Description: </label>  {{car?.description}}
         </div>
-        <div>
-          Description:  {{car?.description}}
+        <div *ngIf="isLoggedIn">
+          <button routerLink="/cars/edit/{{car?._id}}" type="submit" class="btn btn-primary"><i class="fa-solid fa-pencil"></i> Edit</button>
+          <button (click)="deleteCar()" type="submit" class="btn btn-primary m-lg-2"><i class="fa-solid fa-xmark"></i> Delete</button>
         </div>
       </div>
     </div>

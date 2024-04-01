@@ -1,5 +1,7 @@
 .row{
+  display: flex;
   margin-top: 4%;
+  margin-bottom: 5%;
 }
 
 .card-header{
@@ -8,4 +10,20 @@
 
 .card-img{
   max-height: 400px;
+}
+
+.card-item-right{
+  float: right;
+  padding: 6px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.card-label {
+  font-weight: bold;
+}
+
+.card-body-buttons{
+  align-items: center;
 }
