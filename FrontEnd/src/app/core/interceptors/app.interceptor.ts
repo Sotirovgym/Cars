@@ -23,19 +23,6 @@ export class AppInterceptor implements HttpInterceptor {
       });
     }
 
-    // return next.handle(req).pipe(
-    //   catchError((err) => {
-    //     // if (err.status === 401) {
-    //     //   this.router.navigate(['/auth/login']);
-    //     // } else {
-    //     //   this.errorService.setError(err?.message || '');
-    //     //   this.router.navigate(['/error']);
-    //     // }
-
-    //     return [err];
-    //   })
-    // );
-
     return next.handle(request);
   }
 }
