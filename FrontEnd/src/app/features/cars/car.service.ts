@@ -12,7 +12,19 @@ export class CarService {
     return this.http.get<Car[]>(`/api/cars`);
   }
 
-  getCar(id: string) {
+  getCarById(id: string) {
     return this.http.get<Car>(`/api/cars/${id}`);
+  }
+
+  create(carData: Car) {
+    return this.http.post<Car>(`/api/cars`, carData);
+  }
+
+  update(id:string, carData: Car) {
+    return this.http.put<Car>(`/api/cars/${id}`, carData);
+  }
+
+  delete(id:string) {
+    return this.http.delete<Car>(`/api/cars/${id}`);
   }
 }
