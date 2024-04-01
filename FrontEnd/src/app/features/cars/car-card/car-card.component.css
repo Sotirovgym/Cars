@@ -19,7 +19,7 @@
   transition-duration: 500ms;
   transition-timing-function: ease-out;
   height: 210px;
-  width: auto;
+  width: 100%;
   padding-left: 4%;
   padding-right: 4%;
   padding-top: 4%;
