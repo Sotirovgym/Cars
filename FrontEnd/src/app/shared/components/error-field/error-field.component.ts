@@ -1,4 +1,3 @@
-import { style } from '@angular/animations';
 import { Component, Input } from '@angular/core';
 import { AbstractControl, FormControl, FormGroupDirective } from '@angular/forms';
 
