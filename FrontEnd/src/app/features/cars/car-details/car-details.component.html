@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-4 m-auto">
+  <div class="col-sm-4 m-auto">
     <div class="card m-auto">
       <div class="card-header">{{car?.title}}</div>
       <div class="card-image-wrapper">
@@ -30,7 +30,7 @@
         <div>
           <label class="card-label">Description: </label>  {{car?.description}}
         </div>
-        <div *ngIf="isLoggedIn">
+        <div *ngIf="isLoggedIn && isPostOwner">
           <button routerLink="/cars/edit/{{car?._id}}" type="submit" class="btn btn-primary"><i class="fa-solid fa-pencil"></i> Edit</button>
           <button (click)="deleteCar()" type="submit" class="btn btn-primary m-lg-2"><i class="fa-solid fa-xmark"></i> Delete</button>
         </div>

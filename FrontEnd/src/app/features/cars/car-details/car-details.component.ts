@@ -25,6 +25,10 @@ export class CarDetailsComponent implements OnInit {
     return this.authService.isLoggedIn;
   }
 
+  get isPostOwner(): boolean {
+    return this.car?.owner.toString() === this.authService.user._id;
+  }
+
   ngOnInit(): void {
     const carId = this.activeRoute.snapshot.paramMap.get('carId');
 

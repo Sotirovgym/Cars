@@ -16,7 +16,7 @@ export class HeaderComponent {
   }
 
   get username(): string {
-    return this.authService.username;
+    return this.authService.user?.username;
   }
 
   logout() {

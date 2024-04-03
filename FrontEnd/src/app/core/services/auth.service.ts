@@ -12,9 +12,9 @@ export class AuthService {
     return !!localStorage.getItem('user');
   }
 
-  get username(): string {
+  get user(): User {
     const user: User = JSON.parse(localStorage.getItem('user') || '');
-    return user.username || '';
+    return user;
   }
 
   constructor(private http: HttpClient) {}
@@ -41,9 +41,5 @@ export class AuthService {
         localStorage.removeItem('user');
       })
     );
-  }
-
-  getProfile(){
-    return this.http.get<User>('/api/users/profile');
   }
 }
