@@ -10,7 +10,7 @@
   </div>
   <div class="card-body">
     <h5>{{car.title}}</h5>
-    <p>{{car.description}}</p>
+    <p>{{(car.description | slice: 0 : 75) + (car.description.length > 70 ? '...' : '')}}</p>
     <h5>{{(car.price | currency: 'USD')}}</h5>
   </div>
 </div>

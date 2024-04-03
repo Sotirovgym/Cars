@@ -116,11 +116,11 @@ export class CarAddComponent implements OnInit {
     this.createform();
 
     if (!this.isAddMode) {
-      this.carService.getCarById(this.carId).subscribe(x => this.form.patchValue(x));
+      this.carService.getCarById(this.carId).subscribe(car => this.form.patchValue(car));
     }
   }
 
-  createform() {
+  createform(): void {
     this.form = this.fb.group({
       title: [null, [Validators.required, Validators.minLength(5)]],
       brand: [null, [Validators.required, Validators.minLength(3)]],
@@ -135,7 +135,7 @@ export class CarAddComponent implements OnInit {
     });
   }
 
-  createCar(){
+  createCar(): void{
     const car = this.form.value as Car;
 
     this.carService.create(car).subscribe({
@@ -149,7 +149,7 @@ export class CarAddComponent implements OnInit {
     });
   }
 
-  updateCar(){
+  updateCar(): void{
     const car = this.form.value as Car;
 
     this.carService.update(this.carId, car).subscribe({
@@ -163,7 +163,7 @@ export class CarAddComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.isAddMode) {
       this.createCar();
     } else{

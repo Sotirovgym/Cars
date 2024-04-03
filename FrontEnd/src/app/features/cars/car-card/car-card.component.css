@@ -1,5 +1,6 @@
 .card {
-  margin-top: 15%;
+  margin-top: 20%;
+  margin-bottom: 2%;
 }
 
 .card-img-wrapper{
@@ -42,4 +43,8 @@
 
 .animate{
   transition: all 0.3s ease-in-out;
+}
+
+.card-body{
+  height: 150px;
 }
