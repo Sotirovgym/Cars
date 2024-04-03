@@ -1,0 +1,80 @@
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center m-auto">
+  <div class="card p-5">
+    <div
+      class="image d-flex flex-column justify-content-center align-items-center"
+    >
+      <img src="assets\profile.png" height="120" width="120" />
+      <span class="name mt-3">User Info</span>
+
+      <ng-container *ngIf="!isEditMode">
+        <div class="flex">
+          <p>Username:</p>
+          <p>{{ authService.user.username }}</p>
+        </div>
+        <div class="flex">
+          <p>Email:</p>
+          <p>{{ authService.user.email }}</p>
+        </div>
+        <div class="flex">
+          <p>Phone:</p>
+          <p>{{ authService.user.tel }}</p>
+        </div>
+        <div class="flex">
+          <p>Created On:</p>
+          <p>{{ authService.user.created_at | date: 'MMMM d, y' }}</p>
+        </div>
+        <div class="flex">
+          <p>Last Updated On:</p>
+          <p>{{ authService.user.updatedAt | date: 'MMMM d, y hh:mm' }}</p>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="isEditMode">
+        <form class="form-edit" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group col-12">
+            <label for="username" class="form-label">Username</label>
+            <app-error-field [control]='username' [errorMessages]='validationMessages.username' />
+            <input
+              type="text"
+              class="form-control"
+              formControlName="username"
+              id="username"
+              autocomplete="username"
+            />
+          </div>
+
+          <div class="form-group col-12">
+            <label for="email" class="form-label">Email</label>
+            <app-error-field [control]='email' [errorMessages]='validationMessages.email' />
+            <input
+              type="email"
+              class="form-control"
+              formControlName="email"
+              id="email"
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="form-group col-12">
+            <label for="tel" class="form-label">Mobile</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="tel"
+              id="tel"
+            />
+          </div>
+        </form>
+      </ng-container>
+
+      <button *ngIf="!isEditMode" (click)="fillProfileInfo()" class="btn btn-primary">
+        <i class="fa-solid fa-pencil"></i> Edit
+      </button>
+
+      <div *ngIf="isEditMode">
+        <button (click)="updateProfileInfo()" [disabled]="form.invalid" class="btn btn-primary ">Update</button>
+        <button (click)="onToggle()" class="btn btn-primary m-lg-2">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
