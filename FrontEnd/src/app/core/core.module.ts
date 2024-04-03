@@ -4,7 +4,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { ErrorComponent } from './components/error/error.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppInterceptor } from './interceptors/app.interceptor';
@@ -14,7 +13,6 @@ import { AppInterceptor } from './interceptors/app.interceptor';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    ErrorComponent,
     PageNotFoundComponent,
   ],
   imports: [CommonModule, RouterModule],
